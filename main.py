@@ -16,9 +16,9 @@ def webhook():
 
         for member in data["message"]["new_chat_members"]:
             first_name = member.get("first_name", "BLACKNOVA")
-            welcome_message = f"🎉¡Bienvenid@, {first_name} a la Red Despierta!
-            Ya eres parte del círculo privado de BLACKNOVA.
-            Comparte con auntenticidad.⚡"
+            welcome_message = f"""🎉¡Bienvenid@, {first_name} a la Red Despierta!
+Ya eres parte del círculo privado de BLACKNOVA.
+Comparte con autenticidad.⚡"""
 
             url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
             payload = {"chat_id": chat_id, "text": welcome_message}
