@@ -1,3 +1,10 @@
+from flask import Flask, request
+import requests
+import os
+
+app = Flask(__name__)
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+
 @app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
@@ -25,3 +32,6 @@ def webhook():
         requests.post(url, json=payload)
 
     return 'ok', 200
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
